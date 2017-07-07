@@ -1,8 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-typedef unsigned int UINT;
-typedef int INT;
+#include "algo.h"
 
 typedef struct QUEUE_st{
     void **ppData;      /* the pointer array for saving data pointer */

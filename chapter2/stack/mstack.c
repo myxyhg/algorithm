@@ -1,8 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-typedef unsigned int UINT;
-typedef int INT;
+#include "algo.h"
 
 typedef struct STACK_st{
     void **ppBase;

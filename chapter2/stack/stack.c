@@ -1,8 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-typedef unsigned int UINT;
-typedef int INT;
+#include "algo.h"
 
 typedef struct STACK_st{
     void **ppBase;  /* the array of data */
@@ -20,7 +16,7 @@ STACK *Stack_Create(UINT uStackSize)
     STACK *pStack;
     if(uStackSize == 0)
         return NULL;
-    pStack = (STACK *)malloc(sizeof(struct(STACK_st)));
+    pStack = (STACK *)malloc(sizeof(struct STACK_st));
     if(pStack != NULL)
     {
         pStack->ppBase = (void **)malloc(uStackSize * sizeof(void *));

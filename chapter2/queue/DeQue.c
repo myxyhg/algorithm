@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-typedef unsigned int UINT;
+#include "algo.h"
 
 /* the definition of circuit queue structure in DeQue */
 typedef struct DEQUEBLOCK_st
