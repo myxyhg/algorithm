@@ -1,15 +1,48 @@
+/*********************************************************************************
+ * FileName:	algo.h
+ * Author:		gehan
+ * Date:		07/07/2017
+ * Description: General header file for algorithm repository
+**********************************************************************************/
+
 #pragma once
 #include <stdio.h>
 #include <stdlib.h>
+#include <winnt.h>
+#include "windows.h"
 
 typedef unsigned int UINT;
 typedef int INT;
 
 enum INT
 {
-	CAPI_FAILED = 0,
-	CAPI_SUCCESS,
+	CAPI_FAILED = -1,
+	CAPI_SUCCESS = 0,
 };
+
+/*
+ * the windows' signal function used in multi-tasks
+ */
+#if defined(_WIN32)
+#define	LOCK		HANDLE
+#define	EVENT		HANDLE
+#define SEMAPHORE	HANDLE
+
+#define LockCreate()		CreateMutex(NULL,FALSE,NULL)
+#define Lock(x)				(void)WaitForSingleObject((x), INFINITE)
+#define Unlock(x)			(void)ReleaseMutex(x)
+#define LockClose(x)		(void)CloseHandle(x)
+
+#define EventCteate()		CreateEvent(NULL,TRUE,FALSE,NULL)
+#define WaitEvent(x)		(void)WaitForSingleObject((x), INFINITE)
+#define SendEvent(x)		(void)SetEvent(x)
+#define EventClose(x)		(void)CloseHandle(x)
+
+#define SemaCreate(x,y)		CreateSemaphore(NULL,x,y,NULL)
+#define SemaWait(x)			WaitForSingleObject(x,INFINITE)
+#define SemaRelease(x,y)	ReleaseSemaphore(x,y,NULL)
+#define SemaClose(x)		CloseHandle(x)
+#endif
 
 /*
  * Generic data comparison function

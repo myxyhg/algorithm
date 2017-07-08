@@ -1,3 +1,10 @@
+/*********************************************************************************
+ * FileName:	DeQue.c
+ * Author:		gehan
+ * Date:		06/10/2017
+ * Description: The circular queue program
+**********************************************************************************/
+
 #include "algo.h"
 
 /* the definition of circuit queue structure in DeQue */
@@ -28,10 +35,10 @@ DEQUEBLOCK *DeQueBlock_Create(UINT uBlockSize)
 {
     DEQUEBLOCK *pBlock;
     pBlock = (DEQUEBLOCK *)malloc(sizeof(DEQUEBLOCK));
-    if(pBlock != NULL)
+    if(NULL != pBlock)
     {
         pBlock->ppData = (void **)malloc(uBlockSize * sizeof(void *));
-        if(pBlock->ppData == NULL)
+        if(NULL == pBlock->ppData)
         {
             free(pBlock);
             return NULL;

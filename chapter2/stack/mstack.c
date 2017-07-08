@@ -1,3 +1,10 @@
+/*********************************************************************************
+ * FileName:	mstack.c
+ * Author:		gehan
+ * Date:		06/07/2017
+ * Description: Multi-tasks stack program
+**********************************************************************************/
+
 #include "algo.h"
 
 typedef struct STACK_st{

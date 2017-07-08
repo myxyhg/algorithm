@@ -1,3 +1,10 @@
+/*********************************************************************************
+ * FileName:	queue.c
+ * Author:		gehan
+ * Date:		06/10/2017
+ * Description: Queue program
+**********************************************************************************/
+
 #include "algo.h"
 
 typedef struct QUEUE_st{
@@ -42,7 +49,7 @@ INT Queue_InsertTail(QUEUE *pQueue, void *pData)
         void **ppData = (void **)malloc(pQueue->uMaxCount * 2 * sizeof(void *));
         if(ppData == NULL)
             return CAPI_FAILED;
-        if(pQueue->uHead > pQueue->Tail)
+        if(pQueue->uHead > pQueue->uTail)
         {
             UINT i;
             /* copy data from uHead to queue's tail */

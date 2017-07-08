@@ -1,3 +1,10 @@
+/*********************************************************************************
+ * FileName:	stack.c
+ * Author:		gehan
+ * Date:		06/07/2017
+ * Description: stack program
+**********************************************************************************/
+
 #include "algo.h"
 
 typedef struct STACK_st{
@@ -48,7 +55,7 @@ void Stack_Destroy(STACK *pStack,DESTROYFUNC DestroyFunc)
         if(pStack->ppBase != NULL && DestroyFunc != NULL)
         {
             UINT i;
-            for(i = 0;i < pStack->uTop;i++)
+            for(i = 0;i < pStack->uTop;++i)
             {
                 if(pStack->ppBase[i] != NULL)
                 {
@@ -68,7 +75,7 @@ void Stack_Destroy(STACK *pStack,DESTROYFUNC DestroyFunc)
 void *Stack_Pop(STACK *pStack)
 {
     void *pData;
-    if(pStack == NULL || pStack->uTop == 0)
+    if(NULL == pStack || 0 == pStack->uTop)
         return NULL;
     pStack->uTop -= 1;
     pData = pStack->ppBase[pStack->uTop];
@@ -83,7 +90,7 @@ void *Stack_Pop(STACK *pStack)
  */
 INT Stack_Push(STACK *pStack, void *pData)
 {
-    if(pStack == NULL)
+    if(NULL == pStack)
         return CAPI_FAILED;
 
     /* double size stack if full */
@@ -91,7 +98,7 @@ INT Stack_Push(STACK *pStack, void *pData)
     {
         pStack->ppBase = (void **)realloc(pStack->ppBase,
                 (pStack->uStackSize * 2) * sizeof(void *));
-        if(pStack->ppBase == NULL)
+        if(NULL == pStack->ppBase)
             return CAPI_FAILED;
         pStack->uStackSize *= 2;
     }
