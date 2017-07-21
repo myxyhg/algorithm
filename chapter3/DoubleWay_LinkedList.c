@@ -227,7 +227,7 @@ void * DoubleList_PopTail(DOUBLELIST *pDoubleList)
  * @return INT(by default) -- return CAPI_FAILED if delete fail or there is no match node
 						   -- return CAPI_SUCCESS means delete successfully
  */
-INT DOUBLEList_Delete(DOUBLELIST *pDoubleList, void *pMatchData,
+INT DoubleList_Delete(DOUBLELIST *pDoubleList, void *pMatchData,
 	COMPAREFUNC CompareFunc, DESTROYFUNC DestroyFunc)
 {
 	DOUBLENODE *pNode, *pPrevNode;
